@@ -1,10 +1,54 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>js练习</title>
-  </head>
-  <body>
-    
-  </body>
+
+<head>
+  <meta charset="utf-8">
+  <title>js练习</title>
+</head>
+
+<body>
+  <script type="text/javascript">
+    console.log("练习一对象的深度拷贝")
+    console.log("方法一");
+    var a = Symbol('bb'); //Symbol数据类型
+    var person = {
+      name: '吴呜无',
+      perfect: {
+        one: '1',
+        two: '2'
+      },
+      fun: function() {
+        console.log("我是一个函数");
+      },
+      un: undefined, //undefined数据类型
+    }
+    var copy = JSON.parse(JSON.stringify(person));
+    copy.name = "吴先生"
+    console.log(copy);
+    console.log(person);
+    console.log("这个方法会省略掉  Symbol类型 function undefined");
+    console.log("--------------------------------------------------------------")
+    console.log("方法二：递归复制")
+
+    function deepCopy(obj) {
+      var result = Array.isArray(obj) ? [] : {};
+      for (var key in obj) {
+        if (obj.hasOwnProperty(key)) {//用来判断某个对象是否含有这个属性
+          if (typeof obj[key] === 'object') {//判断是否为object类型
+            result[key] = deepCopy(obj[key]); //递归复制
+          } else {
+            result[key] = obj[key];
+          }
+        }
+      }
+      return result;
+    }
+    var newObj = deepCopy(person);
+    newObj.name = "吴师傅"
+    console.log(newObj);
+    console.log(person);
+    console.log("--------------------------------------------------------------")
+  </script>
+</body>
+
 </html>
