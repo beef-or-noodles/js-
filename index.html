@@ -48,6 +48,23 @@
     console.log(newObj);
     console.log(person);
     console.log("--------------------------------------------------------------")
+
+
+    console.log("this的指向问题");
+    var x = 11;
+    var objThis = {
+      x:22,
+      say:function(){
+        console.log(this.x);
+      },
+      say2:()=>{
+        console.log(this.x);
+      }
+    };
+    objThis.say();
+    console.log("Es5 this指向直接调用者");
+    objThis.say2();
+    console.log("Es6 this在定义时绑定 ，指向window");
   </script>
 </body>
 
