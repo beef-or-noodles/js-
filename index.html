@@ -33,8 +33,8 @@
     function deepCopy(obj) {
       var result = Array.isArray(obj) ? [] : {};
       for (var key in obj) {
-        if (obj.hasOwnProperty(key)) {//用来判断某个对象是否含有这个属性
-          if (typeof obj[key] === 'object') {//判断是否为object类型
+        if (obj.hasOwnProperty(key)) { //用来判断某个对象是否含有这个属性
+          if (typeof obj[key] === 'object') { //判断是否为object类型
             result[key] = deepCopy(obj[key]); //递归复制
           } else {
             result[key] = obj[key];
@@ -53,11 +53,11 @@
     console.log("this的指向问题");
     var x = 11;
     var objThis = {
-      x:22,
-      say:function(){
+      x: 22,
+      say: function() {
         console.log(this.x);
       },
-      say2:()=>{
+      say2: () => {
         console.log(this.x);
       }
     };
@@ -65,6 +65,41 @@
     console.log("Es5 this指向直接调用者");
     objThis.say2();
     console.log("Es6 this在定义时绑定 ，指向window");
+
+    console.log('---------------华丽的分割线----------------------------');
+    console.log('排序去重');
+    var arrList = [9, 56, 36, 11, 855, 0, 26, 47, 99, 1520, 369, 14475, 29];
+    var n_arrList = [];
+    for (let i = 0; i < arrList.length; i++) {
+      var num = 0;
+      for (let j = 0; j < arrList.length; j++) {
+        if (arrList[i] > arrList[j]) {
+          num += 1;
+        }
+      }
+      n_arrList[num] = arrList[i];
+    }
+    console.log(n_arrList);
+
+    function bubbleSort2(arr) {
+      console.time('改进后冒泡排序耗时');
+      var i = arr.length - 1; //初始时,最后位置保持不变
+      while (i > 0) {
+        var pos = 0; //每趟开始时,无记录交换
+        for (var j = 0; j < i; j++)
+          if (arr[j] > arr[j + 1]) {
+            pos = j; //记录交换的位置
+            var tmp = arr[j];
+            arr[j] = arr[j + 1];
+            arr[j + 1] = tmp;
+          }
+        i = pos; //为下一趟排序作准备
+      }
+      console.timeEnd('改进后冒泡排序耗时');
+      return arr;
+    }
+    var arr = [3, 44, 38, 5, 47, 15, 36, 26, 27, 2, 46, 4, 19, 50, 48];
+    console.log(bubbleSort2(arr)); 
   </script>
 </body>
 
