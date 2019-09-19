@@ -31,7 +31,7 @@
         console.log("方法二：递归复制")
 
         function deepCopy(obj) {
-            var result = Array.isArray(obj) ? [] : {};
+            var result = Array.isArray(obj) ? [] : {};//判断是否为数组
             for (var key in obj) {
                 if (obj.hasOwnProperty(key)) { //用来判断某个对象是否含有这个属性
                     if (typeof obj[key] === 'object') { //判断是否为object类型
@@ -61,10 +61,8 @@
                 console.log(this.x);
             }
         };
-        objThis.say();
-        console.log("Es5 this指向直接调用者");
-        objThis.say2();
-        console.log("Es6 this在定义时绑定 ，指向window");
+        console.log(objThis.say(),"Es5 this指向直接调用者");
+        console.log(objThis.say2(),"Es6 this在定义时绑定 ，指向window");
 
         console.log('---------------华丽的分割线----------------------------');
         console.log('排序去重');
@@ -104,13 +102,16 @@
         console.log('---------------华丽的分割线Async(Promise) await----------------------------');
 
         async function getMenoy(){
-            var user = await setA('wwq');
+            var user = await setA('吴先生');
             var amount = await setB(user);
             return amount;
         }
         getMenoy().then(data=>{
             console.log(data);
+        }).catch((err)=>{
+            console.log(err);
         });
+
         function setA(val) {
             return new Promise(resolve => {
                 setTimeout(() => {
@@ -122,14 +123,36 @@
         function setB(user) {
             return new Promise((resolve,reject) => {
                 setTimeout(()=>{
-                    if(user === "wwq"){
-                        resolve("1,000")
+                    if(user === "吴先生"){
+                        resolve(user+"存入：1,000元")
                     }else{
-                        reject('unknown user')
+                        reject('用户错误')
                     }
                 },1000);
             });
         };
+
+        console.log('---------------华丽的分割线ES6--Class----------------------------');
+        class Rectangle {
+            // constructor
+            constructor(height, width) {
+                this.height = height;
+                this.width = width;
+            }
+            // Getter
+            get area() {
+                return this.calcArea()
+            }
+            // Method
+            calcArea() {
+                return this.height * this.width;
+            }
+        }
+        const square = new Rectangle(10, 10);
+
+        console.log(square.area);
+
+
     </script>
 </body>
 
