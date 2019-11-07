@@ -42,25 +42,44 @@ function readFile(url,sync=true){
 });*/
 /*fs.mkdirSync("fsDir");*/
 
-var basePath = "fsDir/"
-function readdir(path){
-    fs.readdir(path, function (err, files) {
-        if(err) {console.error(err);return;}
-        files.forEach(function(item){
-            //获取文件信息
-            fs.stat(path+'/'+item,function(err,stat){
-                if (err) {
-                    console.error(err);
-                    throw err;
-                }
-                if(stat.isFile()){
-                    console.log(item,"我是文件");
-                }else if(stat.isDirectory()){
-                    console.log(item,"我是文件夹");
-                }else{
-                    console.log(item,"我是其他文件");
-                }
+/*
+* 递归文件读取
+* @params path 基础路径
+* */
+var basePath = "fsDir"
+function getReaddir(path){
+    var readdirList=[];
+    var obj ={
+        path:"",//路径
+        child:[],//子文件
+    }
+    function readdir(path){
+        fs.readdir(path, function (err, files) {
+            if(err) {console.error(err);return;}
+            console.log(files);
+            files.forEach(function(item){
+                //获取文件信息
+                fs.stat(path+'/'+item,function(err,stat){
+                    if (err) {
+                        console.error(err);
+                        throw err;
+                    }
+                    if(stat.isFile()){
+                        readdirList.push({path:path+'/'+item})
+                        console.log(item,"我是文件");
+                    }else if(stat.isDirectory()){
+                        console.log(path+'/'+item);
+                        readdir(path+'/'+item);
+                        console.log(item,"我是文件夹");
+                    }else{
+                        console.log(item,"我是其他文件");
+                    }
+                })
             })
         })
-    })
+    };
+    readdir(path);
 }
+
+
+getReaddir(basePath)
