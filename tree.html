@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>tree</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="file.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div>
+            {{message}}
+            <button v-on:click="getInitTree">得到消息</button>
+        </div>
+
+    </div>
+    <script>
+        var app = new Vue({
+            el:"#app",
+            data:{
+                message:"Hellw Word",
+                treeData:[],
+            },
+            methods:{
+                getInitTree:function(){
+                    console.log("123");
+                },
+            }
+        })
+    </script>
+</body>
+</html>

@@ -3,83 +3,93 @@
  */
 var fs = require("fs");
 
-
-function readFile(url,sync=true){
-    return new Promise(function(resolve, reject){
-        if(sync){
-            try{
-                var data = fs.readFileSync(url);
-                console.log(data.toString(),"同步读取");
-                let params = {
-                    fileContent:data.toString(),
-                    sync:true,
-                }
-                resolve(params);
-            }catch(err){
-                if(err) throw err
-                reject(err);
-            }
-        }else{
-            fs.readFile(url, (err, data) => {
-                if (err) throw err;
-                let params = {
-                    fileContent:data.toString(),
-                    sync:false,
-                }
-                resolve(params);
-            });
-        }
-    });
-}
 /*读取文件内容*/
-/*readFile("file.txt",false).then(data=>{
-    console.log(data);
-});*/
-/*----------创建目录----------*/
-/*fs.mkdir('fsDir', function (err) {
-    if(err) throw err;
-    console.log('创建目录成功')
-});*/
-/*fs.mkdirSync("fsDir");*/
-
+function readFile(path){
+    var params = {
+        data:"",
+    }
+    try{
+        var data = fs.readFileSync(path,'utf8');
+        params = {
+            data:data.toString(),
+        }
+    }catch(err) {
+        if (err) throw err
+    }
+    return params
+}
 /*
-* 递归文件读取
+* 创建文件夹
+* path：路径加名字
+* */
+function creatDir(path){
+    var params = false;
+    try{
+        fs.mkdirSync(path);
+        params = true;
+    }catch (e) {
+        console.error(e);
+    }
+    return params
+}
+/*
+*文件读取
 * @params path 基础路径
 * */
-var basePath = "fsDir"
 function getReaddir(path){
-    var readdirList=[];
-    var obj ={
-        path:"",//路径
-        child:[],//子文件
+    let obj=[]
+    function readdir(url){
+      let files = fs.readdirSync(url);
+        files.forEach(function(item , index){
+            let params = {
+                path:"",
+                isDirectory:false,
+            }
+            var stat = fs.statSync(url+"/"+item);
+            if(stat.isFile()){
+                params.path = path+"/"+item
+            }else if(stat.isDirectory()){
+                params.path = path+"/"+item
+                params.isDirectory = true
+            }
+            obj.push(params)
+        });
     }
-    function readdir(path){
-        fs.readdir(path, function (err, files) {
-            if(err) {console.error(err);return;}
-            console.log(files);
-            files.forEach(function(item){
-                //获取文件信息
-                fs.stat(path+'/'+item,function(err,stat){
-                    if (err) {
-                        console.error(err);
-                        throw err;
-                    }
-                    if(stat.isFile()){
-                        readdirList.push({path:path+'/'+item})
-                        console.log(item,"我是文件");
-                    }else if(stat.isDirectory()){
-                        console.log(path+'/'+item);
-                        readdir(path+'/'+item);
-                        console.log(item,"我是文件夹");
-                    }else{
-                        console.log(item,"我是其他文件");
-                    }
-                })
-            })
-        })
-    };
     readdir(path);
+    return obj
 }
 
+/*删除文件*/
+function delectFile(path){
+    var params = false;
 
-getReaddir(basePath)
+    var stat = fs.statSync(path);
+    if(stat.isFile()){
+        try{
+            fs.unlinkSync(path);
+            params = true;
+        }catch (e) {
+            console.log(e);
+        }
+    }else if(stat.isDirectory()){
+        try{
+            fs.rmdirSync(path);
+            params = true;
+        }catch (e) {
+            console.log(e);
+        }
+    }
+    return params
+}
+
+/*修改文件内容*/
+function editFile(path,data){
+    var params = false;
+    try {
+        fs.writeFileSync(path,data);
+        params = true;
+    }catch (e) {
+        console.log(e);
+    }
+    return params
+}
