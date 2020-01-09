@@ -196,6 +196,45 @@
         return returnList
     }
     console.log(getPaath(dirList),"多叉数数据----------------------------");
+
+    console.log("js的原型和原型链----------------------------");
+        function Person() {}
+        var p = new Person();
+        p.name = '小强';
+        console.log(p.name) // 小强
+        // Person就是一个构造函数，我们使用new创建了一个实例对象
+       /* prototype
+        每一个函数都有一个prototype属性
+        每一个javaScript对象（null除外）在创建的时候就会与之关联另一个对象，这个对象就是我们所说的
+        原型，每一个对象都会从原型继承属性*/
+
+       function Person(){}
+        Person.prototype.name = "小强";
+       var person1 = new Person();
+       var person2 = new Person();
+       console.log(person1.name);//小强
+       console.log(person2.name);//小强
+
+        /*proto
+        每一个javascript对象（除了null）都具有的一个属性，叫proto，这个属性会指向该对象的原型
+        */
+        function Person(){
+
+        }
+        var p = new Person()
+        console.log(p.__proto__==Person.prototype);//true
+
+      /* constructor
+        每一个原型都有一个constructor属性，指向关联的构造函数实例，原型指向构造函数*/
+        function Person(){
+
+        }
+        var p = new Person();
+        console.log(p.__proto__ == Person.prototype);//true
+        console.log(Person.prototype.constructor == Person);//true
+
+        console.log("js的原型和原型链----------------END------------");
+
 </script>
 </body>
 
