@@ -169,8 +169,20 @@ class Comput {
         gAlertNumber(); // 输出5
         console.log("解释：首先gAlertNumber，gIncreaseNumber，gSetNumber是三个全局变量，并且其三个值都是匿名函数，然而这三个匿名函数本身都是闭包。他们操作的num都是保存在内存中的同一个num，所有会得出上面的结果。");
     }
-}
+    f13(){
+         /*变量提升
+         * 这个结果的原因是，变量和函数都被提升(hoisted) 到了函数体的顶部。因此，当打印变量a时，它虽存在于函数体（因为a已经被声明），但仍然是undefined。
+         * */
+        console.log(a);
+        console.log(foo());
+        var a = 1;
+        function foo() {
+            return 2;
+        }
+    }
 
+
+}
 
 var init = new Comput();
 init.f1()
@@ -185,3 +197,4 @@ init.f9()
 init.f10()
 init.f11()
 init.f12()
+init.f13()

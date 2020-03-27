@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue基本原理实现</title>
+</head>
+<body>
+<div>
+    <h1> VUE的基本原理实现Object.defineProperty()</h1>
+    <input type="text" id="input" oninput="inputchange(event)">
+    <p id="txt">我是文字改变区域</p>
+</div>
+<script>
+    var inputDom = document.getElementById("input");
+    var txtDom =  document.getElementById("txt");
+    var person = {
+        name:"小明"
+    }
+    function inputchange(event){
+       var value = inputDom.value
+        person.name = value
+    }
+    Object.defineProperty(person,"name",{
+        get:function(){
+
+        },
+        set:function (value) {
+            txtDom.innerText = value
+        }
+    })
+</script>
+</body>
+</html>
