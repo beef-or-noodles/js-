@@ -75,7 +75,6 @@ function SubType3(name, age) {
 SubType3.prototype = new SuperType3(); //第二次调用
 
 SubType3.prototype.sayAge = function () {
-
     return this.age
 }
 var people4 = new SubType3('小刚', '24岁')
@@ -127,11 +126,13 @@ class Animal {
     constructor(props) {
         this.name = props.name || "小红"
     }
+
     //父类共有的方法
     sayName() {
         return this.name
     }
 }
+
 //class继承
 class Bird extends Animal {
     //props是继承过来的属性，myProps是自己的属性
@@ -147,5 +148,27 @@ class Bird extends Animal {
 
 //通过new实例化
 var myBird = new Bird({name: "小燕子"}, {age: "18岁"})
-console.log(myBird.sayName(),myBird.sayAge());
+console.log(myBird.sayName(), myBird.sayAge());
 
+console.log("new关键字的实现原理-----------------------");
+
+function newFn(name) {
+    this.name = name
+}
+
+var New = function (P, name) {
+    //1.创建一个空对象
+    var obj = new Object()
+    //2.绑定this
+    var result = P.call(obj, name)
+    //3.设置原型链 将obj的__proto__成员指向了Person函数对象的prototype成员对象
+    obj.__proto__ = P.prototype
+    //4.判断返回类型 如果是引用类型就返回这个引用类型的值，如果是值类型就返回创建的obj
+    if (typeof (result) == "object") {
+        return result
+    } else {
+        return obj
+    }
+}
+var people8 = New(newFn, "小吴")
+console.log(people8.name);
