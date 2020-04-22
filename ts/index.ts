@@ -3,7 +3,7 @@
 var message:string="Hello Word"
 var num:number=1
 var judge:boolean=true
-var any:any = 4.333333
+var any:any = 4.3333333
 any.toFixed(2)
 var arr:Array<number>=[1,2]
 var arr1:string[]=["a","b"]
