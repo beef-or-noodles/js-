@@ -3,6 +3,10 @@ import React, {Component} from 'react'
 import ReactDOM from 'react-dom'
 import './index.css'
 
+/*
+* 格子组件
+* props 接收参数 包括事件
+* */
 function Square(props){
     return (
         <button className="square" onClick={props.onClick}>
@@ -10,7 +14,10 @@ function Square(props){
         </button>
     );
 }
-
+/*
+* 继承Component的方式创建组件
+* 创建棋盘
+* */
 class Board extends Component {
     renderSquare(i) {
         return <Square
@@ -40,11 +47,16 @@ class Board extends Component {
         );
     }
 }
-
+/*
+* 组合游戏界面Game 还有游戏逻辑也在里面
+* */
 class Game extends Component {
+    // 构造器
     constructor(props){
         super(props)
+        //State 与 props 类似，但是 state 是私有的，并且完全受控于当前组件。
         this.state = {
+            // 历史记录数组
             history:[{
                 squares: Array(9).fill(null)
             }],
@@ -52,12 +64,17 @@ class Game extends Component {
             stepNumber: 0,
         }
     }
+    /*跳转到指定步数*/
     jumpTo(step) {
+        // 设置状态数据
         this.setState({
             stepNumber: step,
             xIsNext: (step % 2) === 0,
         });
     }
+    /*
+    * 格子点击事件 并拿到当前的index
+    * */
     handleClick(i) {
         const history = this.state.history.slice(0, this.state.stepNumber + 1);
         const current = history[this.state.stepNumber];
@@ -74,6 +91,7 @@ class Game extends Component {
             xIsNext: !this.state.xIsNext,
         });
     }
+    /*每次组件更新时 render 方法都会被调用*/
     render() {
 
         const history = this.state.history;
@@ -93,12 +111,14 @@ class Game extends Component {
 
         let status;
         if (winner) {
-            status = 'Winner: ' + winner;
+            status = '胜利者: ' + winner;
         } else {
             status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
         }
 
-
+        /*
+        * 返回html模板
+        * */
         return (
             <div className="game">
                 <div className="game-board">
@@ -117,11 +137,12 @@ class Game extends Component {
 }
 
 // ========================================
-
+//ReactDOM.render() 渲染我们的组件到指定dom里面
 ReactDOM.render(
     <Game />,
     document.getElementById('root')
 );
+/*一个计算胜利者的方法*/
 function calculateWinner(squares) {
     const lines = [
         [0, 1, 2],
