@@ -2,7 +2,7 @@
 import React, {Component} from 'react'
 import ReactDOM from 'react-dom'
 import './index.css'
-
+import ListItem from './list'
 /*
 * 格子组件
 * props 接收参数 包括事件
@@ -122,6 +122,7 @@ class Game extends Component {
         return (
             <div className="game">
                 <div className="game-board">
+                    <ListItem/>
                     <Board
                         squares={current.squares}
                         onClick={(i) => this.handleClick(i)}
@@ -139,8 +140,8 @@ class Game extends Component {
 // ========================================
 //ReactDOM.render() 渲染我们的组件到指定dom里面
 ReactDOM.render(
-    <Game />,
-    document.getElementById('root')
+    <Game />
+    ,document.getElementById('root')
 );
 /*一个计算胜利者的方法*/
 function calculateWinner(squares) {
