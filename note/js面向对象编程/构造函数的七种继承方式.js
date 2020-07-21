@@ -27,7 +27,7 @@ function Cat2(name,color){
     this.color = color
 }
 Cat2.prototype = new Animal()
-// 任何一个prototype里面都有一个constructor 上面那一行改变了constructor指向Animal  所以下方需要将constructor从新指会Cat2
+// 任何一个prototype里面都有一个constructor 上面那一行改变了constructor指向Animal  所以下方需要将constructor从新指回Cat2
 Cat2.prototype.constructor = Cat2
 var cat2 = new Cat2()
 // 注意每一个实例也有一个constructor属性默认调用prototype对象的constructor属性
@@ -96,3 +96,13 @@ function extend(Child,Parent){
 extend(Cat5,Animate3)
 var cat5 = new Cat5("八哥",'灰色')
 console.log(cat5.species,cat5.name); // 动物 八哥
+
+/*-----------------
+* 六、非构造函数继承
+*
+* */
+
+/*
+* 还是拷贝继承发，注意进行深拷贝
+* 使用递归
+* */
