@@ -76,3 +76,21 @@ function f2(num){
     return Number(arr.join('.'))
 }
 console.log(f2(99),'立方根')
+
+    /*
+    *   35 头 96足
+    * */
+    function f3(){
+        let arr = []
+        let x=1,y=34
+        for(let i=1;i<34;i++){
+            let t = 4*(x++)
+            let j = 2*(y--)
+            if(t + j == 94){
+                console.log(t,j);
+                arr.push([x,y])
+            }
+        }
+        return arr
+    }
+    console.log(f3(),'鸡兔同笼');
