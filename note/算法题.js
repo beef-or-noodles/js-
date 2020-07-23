@@ -1,7 +1,13 @@
 /**
  * Created by Administrator on 2020/7/21.
  */
-
+/*
+* OJ   javascript输出方式
+* while(line=readLine()){
+*    var arr = line.split(' ')
+*    var A = arr[0]
+* }
+* */
 /*
 * 题目描述
 * 正整数A和正整数B 的最小公倍数是指 能被A和B整除的最小的正整数值，设计一个算法，求输入A和B的最小公倍数。
@@ -31,4 +37,36 @@ function f1(A,B) {
     },1)
    return num
 }
-console.log(f1(1,7));
+console.log(f1(7,7),'公倍数');
+
+/*题目二
+* •计算一个数字的立方根，不使用库函数
+* 详细描述：
+* •接口说明
+* 原型：
+* public static double getCubeRoot(double input)
+* 输入:double 待求解参数
+* 返回值:double  输入参数的立方根，保留一位小数
+* */
+
+function f2(num){
+    let dob = 0
+    let cur = true
+    let i = 0
+    let arr = [0,0]
+    while(cur){
+        i++
+        let x = i*i*i
+        if(num<x){
+            arr[1] = i
+        }else if(x<num){
+            arr[0] = i
+        }
+        if(arr[0]<num<arr[1]){
+            cur = false
+        }
+    }
+    console.log(i);
+    return arr
+}
+console.log(f2(80),'立方根')
