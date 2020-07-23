@@ -1,4 +1,10 @@
 /*我的typeScript*/
+<<<<<<< HEAD
+var message = "Hello Word";
+var num = 1;
+var judge = true;
+var any = 4.333333;
+=======
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
@@ -16,6 +22,7 @@ var message = "Hello Word";
 var num = 1;
 var judge = true;
 var any = 4.3333333;
+>>>>>>> origin/master
 any.toFixed(2);
 var arr = [1, 2];
 var arr1 = ["a", "b"];
@@ -31,17 +38,69 @@ function say() {
     console.log("Hello Word Void");
 }
 console.log(message, num, judge, any, arr, arr1, arr2, c, say());
+<<<<<<< HEAD
+=======
 // TypeScript 面向对象编程实例
+>>>>>>> origin/master
 var Site = /** @class */ (function () {
     function Site() {
     }
     Site.prototype.name = function () {
+<<<<<<< HEAD
+        console.log("Runoob");
+=======
         console.log("我是面向对象编程实例");
+>>>>>>> origin/master
     };
     return Site;
 }());
 var obj = new Site();
 obj.name();
+<<<<<<< HEAD
+function count(str) {
+    var txt = str.replace(/\s+/g, '');
+    var arr = txt.split("");
+    var answer = {};
+    arr.forEach(function (item) {
+        if (answer.hasOwnProperty(item)) {
+            answer[item]++;
+        }
+        else {
+            answer[item] = 1;
+        }
+    });
+    console.log(answer);
+}
+count('hello world');
+function cssStyle2DomStyle(sName) {
+    var str = "";
+    if (sName.indexOf('-') == -1) {
+        return '请传入正确的值';
+    }
+    var arr = sName.split('');
+    var newArr = arr;
+    for (var i = 0; i < newArr.length; i++) {
+        if (arr[i] == '-') {
+            if (i > 1) {
+                arr[i + 1] = arr[i + 1].toUpperCase();
+            }
+            arr.splice(i, 1);
+        }
+    }
+    str = arr.join('');
+    return str;
+}
+cssStyle2DomStyle('font-size');
+var datas = [10, 20, 30];
+datas.unshift(40, 50);
+datas.pop();
+datas.push(60, 70);
+datas.shift();
+console.log(datas.toString());
+var array = [-1, 1, 3, 4, 6, 10];
+array.sort(function (a, b) { return Math.abs(a - 3) - Math.abs(b - 3); });
+console.log(array);
+=======
 function fn() {
     console.log("我是无返回值得函数");
 }
@@ -105,3 +164,4 @@ function drawAllShapes(shape) {
     shape.draw();
 }
 drawAllShapes(new Drawing.Circle());
+>>>>>>> origin/master

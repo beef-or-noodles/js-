@@ -3,10 +3,12 @@
  */
 /*
 * OJ   javascript输出方式
-* while(line=readLine()){
-*    var arr = line.split(' ')
-*    var A = arr[0]
-* }
+* while(line=readline()){
+    var lines = line.split(' ');
+    var A = parseInt(lines[0]);
+    var B = parseInt(lines[1]);
+    print(init(A,B));
+}
 * */
 /*
 * 题目描述
@@ -48,25 +50,29 @@ console.log(f1(7,7),'公倍数');
 * 输入:double 待求解参数
 * 返回值:double  输入参数的立方根，保留一位小数
 * */
-
+// dec 保留几位小数
+// num 计算数
 function f2(num){
-    let dob = 0
-    let cur = true
-    let i = 0
-    let arr = [0,0]
-    while(cur){
-        i++
-        let x = i*i*i
-        if(num<x){
-            arr[1] = i
-        }else if(x<num){
-            arr[0] = i
-        }
-        if(arr[0]<num<arr[1]){
-            cur = false
+    let dec = 1 // 保留几位小数
+    let arr=new Array(dec+1).fill(0)
+    for(let i=0;i<=dec;i++){
+        let condition = true
+        let j=0
+        while (condition){
+            j++
+            var x = 0
+            if(i==1){
+                 var y = Number(`${arr[0]}.${j}`)
+                 x = y * y * y
+            }else{
+                 x = j * j * j
+            }
+            if(x>num){
+                arr[i] = j-1
+                condition = false
+            }
         }
     }
-    console.log(i);
-    return arr
+    return Number(arr.join('.'))
 }
-console.log(f2(80),'立方根')
+console.log(f2(99),'立方根')
