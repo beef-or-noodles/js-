@@ -53,44 +53,37 @@ console.log(f1(7,7),'公倍数');
 // dec 保留几位小数
 // num 计算数
 function f2(num){
-    let dec = 1 // 保留几位小数
-    let arr=new Array(dec+1).fill(0)
-    for(let i=0;i<=dec;i++){
-        let condition = true
-        let j=0
-        while (condition){
-            j++
-            var x = 0
-            if(i==1){
-                 var y = Number(`${arr[0]}.${j}`)
-                 x = y * y * y
-            }else{
-                 x = j * j * j
-            }
-            if(x>num){
-                arr[i] = j-1
-                condition = false
-            }
+    //公式 ((x*x) - (90/x)) * 1000 <= 0.001*1000
+    let pre = 0.001 // 精度
+    let result = 0
+    let x = 1
+    let loop = true
+    while(loop){
+        x++
+        if(((90*1000/x)- (x*x)*1000) <=1){
+            loop = false
         }
     }
-    return Number(arr.join('.'))
+    console.log(x);
+    return result
 }
-console.log(f2(99),'立方根')
+console.log(f2(8),'立方根')
 
-    /*
-    *   35 头 96足
-    * */
-    function f3(){
-        let arr = []
-        let x=1,y=34
-        for(let i=1;i<34;i++){
-            let t = 4*(x++)
-            let j = 2*(y--)
-            if(t + j == 94){
-                console.log(t,j);
-                arr.push([x,y])
-            }
+/*
+*   35 头 96足
+* */
+function f3(){
+    let arr = []
+    let x=0,y=35
+    for(let i=0;i<35;i++){
+        let x1 = x++, y1 = y--
+        let t = 4*x1
+        let j = 2*y1
+        if(t + j == 94){
+            arr.push([x1,y1])
+            break
         }
-        return arr
     }
-    console.log(f3(),'鸡兔同笼');
+    return arr
+}
+console.log(f3(),'鸡兔同笼');
