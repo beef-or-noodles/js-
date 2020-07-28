@@ -52,22 +52,22 @@ console.log(f1(7,7),'公倍数');
 * */
 // dec 保留几位小数
 // num 计算数
-function f2(num){
+function f2(x){
     //公式 ((x*x) - (90/x)) * 1000 <= 0.001*1000
     let pre = 0.001 // 精度
-    let result = 0
-    let x = 1
-    let loop = true
-    while(loop){
-        x++
-        if(((90*1000/x)- (x*x)*1000) <=1){
-            loop = false
+    if(x==0||x==1||x==-1)return x
+    let min = x<0?x:0, max = x>0?x:0 // min最小 max最大
+    while(min<max){
+        let m = (min + max)/2
+        let value = m*m*m
+        if(value>x){
+            max = m
+        }else if(value < x){
+            min = m
         }
     }
-    console.log(x);
-    return result
 }
-console.log(f2(8),'立方根')
+console.log(f2(9),'立方根')
 
 /*
 *   35 头 96足
