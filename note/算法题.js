@@ -13,15 +13,17 @@
 /*
 * 题目描述
 * 正整数A和正整数B 的最小公倍数是指 能被A和B整除的最小的正整数值，设计一个算法，求输入A和B的最小公倍数。
+*
+* 使用分解质因数法
 * */
 function f1(A,B) {
     if(typeof A != 'number'&&typeof B != 'number') return '请输入正确的数据'
-    let arr = [] //用于存放合理值
-    let divisor=[1,1]
+    let arr = [] //用于公因数
+    let divisor=[1,1] // 存放余数
     function fo(x,y){
-        let min =  x>y?x:y // 取得最小值
+        let min =  x>y?x:y // 取得参数的最小值
         for (let i = 2; i <= min ;i++) {
-            if((x%i == 0)&&(y%i==0)){
+            if((x%i == 0)&&(y%i==0)){ // 判断能同时余尽的i
                 arr.push(i)
                 divisor[0] = x/i
                 divisor[1] = y/i
@@ -31,15 +33,17 @@ function f1(A,B) {
         }
     }
     fo(A,B)
+    // 如果没有公因数，就直接使用原始值
     if(!arr.length){
         arr = [A,B]
     }
+    //使用高阶函数进行累乘
     let num = arr.concat(divisor).reduce((total,cur)=>{
         return cur * total
     },1)
    return num
 }
-console.log(f1(7,7),'公倍数');
+console.log(f1(8,50),'公倍数'); // 200
 
 /*题目二
 * •计算一个数字的立方根，不使用库函数
@@ -54,15 +58,16 @@ console.log(f1(7,7),'公倍数');
 // Math.ceil()向上取整
 // Math.floor()向下取整
 // Number.toFixed(2) 四舍五入保留两位小数
-//  计算数x
+
 function f2(x){
     let pre = 0.01 // 精度区间
-    if(x==0||x==1||x==-1)return x
+    if(x==0||x==1||x==-1)return x //这些数都会返回本身
     let min = x<0?x:0, max = x>0?x:0 // min最小 max最大
     while(min<max){
         let m = (min + max)/2
         let value = m*m*m
         if(value == x || (x+pre>value&&value>x-pre)){
+            // 计算值等于输入值或则 计算值在这个精度之间 就返回  否则修改最大最小值继续循环
             let z = m.toFixed(1)
             return z
         }else if(value>x){
@@ -72,10 +77,12 @@ function f2(x){
         }
     }
 }
-console.log(f2(27),'立方根')
+console.log(f2(20),'立方根') // 2.7
 
 /*
-*   35 头 96足
+*  35 头 94足
+*  现在笼子里一共有36只脚 35个头
+*  计算鸡兔各有多少只
 * */
 function f3() {
     let arr = []
@@ -92,7 +99,7 @@ function f3() {
     return arr
 }
 
-console.log(f3(), '鸡兔同笼');
+console.log(f3(), '鸡兔同笼');//[ [ 12, 23 ] ] 兔12 鸡23
 
 /*
 * 题目描述
