@@ -155,27 +155,91 @@ f5('18259 3386 -3490 64453 -1571 57543 12151 2186 -17851 56212 42919 48020 -409 
     详细说明：
     1.运算只考虑加减乘除运算，没有阶乘等特殊运算符号，友情提醒，整数除法要当心；
     2.牌面2~10对应的权值为2~10, J、Q、K、A权值分别为为11、12、13、1；
-    3.输入4张牌为字符串形式，以一个空格隔开，首尾无空格；如果输入的4张牌中包含大小王，则输出字符串“ERROR”，表示无法运算；
+    3.输入4张牌为字符串形式，以一个空格隔开，首尾无空格；如果输入的4张牌中包含大小王，
+      则输出字符串“ERROR”，表示无法运算；
     4.输出的算式格式为4张牌通过+-*!/四个运算符相连，中间无空格，4张牌出现顺序任意，只要结果正确；
     5.输出算式的运算顺序从左至右，不包含括号，如1+2+3*4的结果为24
     6.如果存在多种算式都能计算得出24，只需输出一种即可，如果无法得出24，则输出“NONE”表示无解。
+
+    new Set() 去除重复
+    eval() 将字符串转换为可执行代码
 */
 
 function f6(arr){
-    let computed = ['+','-','*','/']
-    let com_arr = []
+    /* 大小王返回Error */
+    if(arr.indexOf('joker')!=-1||arr.indexOf('joker')!=-1||arr.length!=4) return 'ERROR'
 
-    /*穷举所有可能 存在重复*/
+    let computed = ['+','-','*','/']
+    let com_arr = [] //存放计算符号穷举值
+
+    /*输入值*/
+    let data  = arr
+    let data_arr = []  //存放数组穷举值
+
+    /*穷举所有可能 存在重复  长度为三*/
     for (let i in computed){
         for (let j in computed){
             for (let l in computed){
-                for (let k in computed){
-                    com_arr.push([computed[i],computed[j],computed[l],computed[k]])
+                 com_arr.push([computed[i],computed[j],computed[l]])
+            }
+        }
+    }
+    //穷举所有数字组合数据 有重复
+    for (let i in data){
+        for (let j in data){
+            for (let l in data){
+                for (let k in data){
+                    data_arr.push([data[i],data[j],data[l],data[k]])
                 }
             }
         }
     }
-    return com_arr
+
+    /*去重复*/
+    let new_data = []
+    for (let i in data_arr){
+        let set = new Set(data_arr[i])
+        let res = [...set]
+        if(res.length == data.length){
+            new_data.push(data_arr[i])
+        }
+    }
+
+    // 计算结果集
+    let result = []
+    for (let i in com_arr){
+        for (let k in new_data){
+            if(eval(`((${com_str(new_data[k][0])}${com_arr[i][0]}${com_str(new_data[k][1])})${com_arr[i][1]}${com_str(new_data[k][2])})${com_arr[i][2]}${com_str(new_data[k][3])}`) == 24){
+                result.push(`${new_data[k][0]}${com_arr[i][0]}${new_data[k][1]}${com_arr[i][1]}${new_data[k][2]}${com_arr[i][2]}${new_data[k][3]}`)
+            }
+        }
+    }
+
+    // 转换权重值
+    function com_str(str){
+        let num = str
+        switch (str) {
+            case 'J':
+                num = 11
+                break
+            case 'Q':
+                num = 12
+                break
+            case 'K':
+                num = 13
+                break
+            case 'A':
+                num = 1
+                break
+        }
+        return Number(num)
+    }
+    // 返回结果
+    if(result.length) {
+        return result[0]+'=24'
+    }else{
+        return 'NONE'
+    }
 }
 
-console.log(f6([1,2,3,4]),'计算24点');
+console.log(f6([4,2,'K','A']),'计算24点');
