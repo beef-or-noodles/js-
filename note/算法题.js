@@ -257,6 +257,24 @@ console.log(f6([4,2,'K','A']),'计算24点');// 输出：K+A*2-4=24
 * 对字符中的各个英文字符（大小写分开统计），数字，空格进行统计，
 * 并按照统计个数由多到少输出,如果统计的个数相同，
 * 则按照ASCII码由小到大排序输出 。如果有其他字符，则对这些字符不用进行统计。
-* str.charCodeAt(i) //字符转换ASCII码
+* str.charCodeAt(i) //字符转换ASCII码\
+* split('') ,字符串分割数组
 * 正则替换非数字字母大小写空格 的字符串
 * */
+
+function f7(str){
+    var ruler = /[^A-Za-z0-9 ]/g
+    let re = str.replace(ruler,'')
+    console.log(re);
+    let arr = re.split('')
+    let obj = {}
+    for(let i in arr){
+        if(obj.hasOwnProperty(arr[i])){
+            obj[arr[i]]++
+        }else{
+            obj[arr[i]] = 1
+        }
+    }
+    return obj
+}
+console.log(f7('A@@##$$$%^!.. B ccDddd158呜呜呜我·1法师法师坑就好发收款计划发上6555484 jjaccDDWWEEAAF+++==='),'统计规定字符串')
