@@ -265,16 +265,43 @@ console.log(f6([4,2,'K','A']),'计算24点');// 输出：K+A*2-4=24
 function f7(str){
     var ruler = /[^A-Za-z0-9 ]/g
     let re = str.replace(ruler,'')
-    console.log(re);
     let arr = re.split('')
     let obj = {}
-    for(let i in arr){
+    for(let i in arr){ //统计字符出现次数
         if(obj.hasOwnProperty(arr[i])){
             obj[arr[i]]++
         }else{
             obj[arr[i]] = 1
         }
     }
-    return obj
+    let n_array = []
+    for (let key in obj){ // 转化为数组进行排序
+        let r_obj = {}
+        r_obj['key'] = key
+        r_obj['num'] = obj[key]
+        //转换ASCII码
+        r_obj['ascii'] = key.charCodeAt(0)
+        n_array.push(r_obj)
+    }
+    /*进行排序*/
+
+    let temp;//临时变量
+    for(let i=0; i<n_array.length-1; i++){   //表示趟数，一共arr.length-1次。
+        for(let j=n_array.length-1; j>i; j--){
+            console.log(i,j);
+            if(n_array[j].num < n_array[j-1].num){
+                temp = n_array[j];
+                n_array[j] = n_array[j-1];
+                n_array[j-1] = temp;
+            }
+        }
+    }
+    // 提取出排序字符串
+    let str_arr = []
+    for(key in n_array){
+        str_arr.push(n_array[key].key)
+    }
+
+    return str_arr.join('')
 }
-console.log(f7('A@@##$$$%^!.. B ccDddd158呜呜呜我·1法师法师坑就好发收款计划发上6555484 jjaccDDWWEEAAF+++==='),'统计规定字符串')
+console.log(f7('aadddccddc'),'统计规定字符串')
