@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+    <meta charset="UTF-8">
+    <title>theme主题切换</title>
+    <!-- 需要引入全局样式文件 id为theme -->
+    <link rel="stylesheet" id="theme" href="./css/theme.css" />
+</head>
+<body>
+更换主题颜色：
+<input style="width: 60px; height: 60px" type="color" id="color" onchange="colorChange()">
+<div class="box"></div>
+<div class="btns">
+    <button class="btn-primary">Primary</button>
+    <button class="btn-succcess">Succcess</button>
+    <button class="btn-info">Info</button>
+    <button class="btn-warning">Warning</button>
+    <button class="btn-danger">Danger</button>
+</div>
+<style type="text/css">
+    .box{
+        width: 500px;
+        height: 100px;
+        background-color: var(--theme-color);
+        margin-top: 100px;
+    }
+    .btns button{
+        width: 180px;
+        color: white;
+        padding: 15px 0;
+        text-align: center;
+        font-size: 16px;
+    }
+    .btn-primary{
+        background-color: var(--theme-color);
+    }
+    .btn-succcess{
+        background-color: var(--theme-success);
+    }
+    .btn-info{
+        background-color: var(--theme-info);
+    }
+    .btn-warning{
+        background-color: var(--theme-warning);
+    }
+    .btn-danger{
+        background-color: var(--theme-danger);
+    }
+</style>
+<script>
+    // 这里必须传入初始颜色值
+    var oldColor = "#1890ff"
+    var newColor = ""
+    var color = document.getElementById('color')
+    // 初始化选色板
+    color.value = oldColor
+    // 颜色选择改变
+     function colorChange(){
+        newColor = color.value;
+        theme(newColor,oldColor)
+         // 更新旧值
+         oldColor = newColor
+         console.log(oldColor);
+    }
+    // 替换全局css文件
+    function theme (newValue, oldValue) {
+        let themetag = document.getElementById('themetag')
+        // 判断是否存在id为themetag的自定义css
+        if(themetag){
+            // 获取文本
+            let txt = themetag.innerText
+            // 将旧值替换成新值
+            let str = txt.replace(new RegExp(oldValue,'g'),newValue);
+            themetag.innerText = str
+        }else{
+            // 获取全局css文件
+            var global = document.getElementById("theme");
+            let url = global.href
+            // 下载文件  将文件转换成字符串
+            const xhr = new XMLHttpRequest()
+            xhr.onreadystatechange = () => {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    // 替换字符串颜色值
+                    var str = xhr.responseText.replace(new RegExp(oldValue,'g'),newValue);
+                    <!--创建id为themetag标签的<script><\/script>-->
+                    styleTag = document.createElement('style')
+                    styleTag.setAttribute('type', 'text/css')
+                    styleTag.setAttribute('id', 'themetag')
+                    document.head.appendChild(styleTag)
+                    styleTag.innerText = str
+                }
+            }
+            xhr.open('GET', url)
+            xhr.send()
+        }
+    }
+
+    /*
+    * 替换指定字符串颜色值
+    *
+    * */
+    function replaceColor(name,str){
+        
+    }
+</script>
+</body>
+</html>
