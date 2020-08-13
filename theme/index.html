@@ -6,8 +6,16 @@
     <link rel="stylesheet" id="theme" href="./css/theme.css" />
 </head>
 <body>
-更换主题颜色：
-<input style="width: 60px; height: 60px" type="color" id="color" onchange="colorChange()">
+Priamry：
+<input style="width: 40px; height: 40px" type="color" id="primary" onchange="colorChange('primary')">
+Success：
+<input style="width: 40px; height: 40px" type="color" id="success" onchange="colorChange('success')">
+Info：
+<input style="width: 40px; height: 40px" type="color" id="info" onchange="colorChange('info')">
+Warnimg：
+<input style="width: 40px; height: 40px" type="color" id="warning" onchange="colorChange('warning')">
+Danger：
+<input style="width: 40px; height: 40px" type="color" id="danger" onchange="colorChange('danger')">
 <div class="box"></div>
 <div class="btns">
     <button class="btn-primary">Primary</button>
@@ -20,7 +28,7 @@
     .box{
         width: 500px;
         height: 100px;
-        background-color: var(--theme-color);
+        background-color: var(--theme-primary);
         margin-top: 100px;
     }
     .btns button{
@@ -31,7 +39,7 @@
         font-size: 16px;
     }
     .btn-primary{
-        background-color: var(--theme-color);
+        background-color: var(--theme-primary);
     }
     .btn-succcess{
         background-color: var(--theme-success);
@@ -47,29 +55,35 @@
     }
 </style>
 <script>
-    // 这里必须传入初始颜色值
-    var oldColor = "#1890ff"
-    var newColor = ""
-    var color = document.getElementById('color')
-    // 初始化选色板
-    color.value = oldColor
+
+    // 初始化选色板颜色值
+    var colorList = {
+        primary:'#1890ff',
+        success:'#67C23A',
+        info:'#909399',
+        warning:'#ffba00',
+        danger:'#ff4949'
+    }
+    for (let key in colorList) {
+        var dom = document.getElementById(key)
+        dom.value = colorList[key]
+    }
+
     // 颜色选择改变
-     function colorChange(){
-        newColor = color.value;
-        theme(newColor,oldColor)
-         // 更新旧值
-         oldColor = newColor
-         console.log(oldColor);
+     function colorChange(id){
+         var color = document.getElementById(id) // 获取指定颜色值
+         let name = `--theme-${id}` // 拼装key
+        theme(color.value,name)
     }
     // 替换全局css文件
-    function theme (newValue, oldValue) {
+    function theme (newValue,name) {
         let themetag = document.getElementById('themetag')
         // 判断是否存在id为themetag的自定义css
         if(themetag){
             // 获取文本
             let txt = themetag.innerText
             // 将旧值替换成新值
-            let str = txt.replace(new RegExp(oldValue,'g'),newValue);
+            let str = replaceColor(name,newValue,txt)
             themetag.innerText = str
         }else{
             // 获取全局css文件
@@ -80,13 +94,13 @@
             xhr.onreadystatechange = () => {
                 if (xhr.readyState === 4 && xhr.status === 200) {
                     // 替换字符串颜色值
-                    var str = xhr.responseText.replace(new RegExp(oldValue,'g'),newValue);
+                    var str = xhr.responseText;
                     <!--创建id为themetag标签的<script><\/script>-->
                     styleTag = document.createElement('style')
                     styleTag.setAttribute('type', 'text/css')
                     styleTag.setAttribute('id', 'themetag')
                     document.head.appendChild(styleTag)
-                    styleTag.innerText = str
+                    styleTag.innerText = replaceColor(name,newValue,str)
                 }
             }
             xhr.open('GET', url)
@@ -96,10 +110,28 @@
 
     /*
     * 替换指定字符串颜色值
-    *
+    * 1.查找指定字符串索引
+    * 2.从指定索引截取字符串 得到新字符串
+    * 3.新字符串第一个分号索引
+    * 4.替换指定字符+1 到分号索引之间的值
+    * name: 指定字符串
+    * color:颜色值
+    * str: 字符串
     * */
-    function replaceColor(name,str){
-        
+    function replaceColor(name,color,str){
+        //匹配字符开始位置
+        let match = str.indexOf(name)
+        if(match == -1){console.error("没有找到指定变量名");return }
+        let n_str = str.substring(match+1,str.length)
+        // 到分号的位子
+        let match1 = n_str.indexOf(';')
+        let begin = match + name.length + 1
+        let end = match1 + match + 1
+        let rsult = changeStr(str,begin,end,color)
+        return rsult
+    }
+    function changeStr(str,begin,end,color){
+        return str.substring(0, begin) + color + str.substring(end , str.length);
     }
 </script>
 </body>

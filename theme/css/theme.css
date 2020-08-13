@@ -1,10 +1,10 @@
 /*
 * 全局颜色变量
-* 使用方式：color:var(--theme-color);
+* 使用方式：color:var(变量名);
 * 在需要使用颜色的地方 需要使用全局变量
 */
 :root{
-    --theme-color: #1890ff;
+    --theme-primary: #1890ff;
     --theme-success: #67C23A;
     --theme-info: #909399;
     --theme-warning: #ffba00;
