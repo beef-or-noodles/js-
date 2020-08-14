@@ -16,7 +16,7 @@ Warnimg：
 <input style="width: 40px; height: 40px" type="color" id="warning" onchange="colorChange('warning')">
 Danger：
 <input style="width: 40px; height: 40px" type="color" id="danger" onchange="colorChange('danger')">
-<div class="box"></div>
+<div class="box">主题色</div>
 <div class="btns">
     <button class="btn-primary">Primary</button>
     <button class="btn-succcess">Succcess</button>
@@ -27,9 +27,11 @@ Danger：
 <style type="text/css">
     .box{
         width: 500px;
-        height: 100px;
+        line-height: 50px;
         background-color: var(--theme-primary);
         margin-top: 100px;
+        text-align: center;
+        color: white;
     }
     .btns button{
         width: 180px;
@@ -55,7 +57,6 @@ Danger：
     }
 </style>
 <script>
-
     // 初始化选色板颜色值
     var colorList = {
         primary:'#1890ff',
