@@ -336,13 +336,11 @@ console.timeEnd();
 function f9(x,y){
     // 判断是否为整数
     function isInteger(obj) {
-        return Math.floor(obj) === obj
+        return !Math.floor(obj) === obj
     }
     if(typeof x != 'number' || typeof y != 'number' || x<=0 || y<=0 || isInteger(x) || isInteger(y)) return -1
-
     // x+y+z=7
-
-
-    return 0
+    let basket = new Array(y).fill([])
+    return basket
 }
 console.log("分苹果可能性统计",f9(7,3));
