@@ -332,15 +332,11 @@ console.timeEnd();
 * 输入 苹果 x 个 篮子 y 个 如果输入非法返回-1
 * 将苹果分放在篮子中允许存在空篮子
 * 求总共有多少种可能  不重复
+*
+* 第一个
 * */
 function f9(x,y){
     // 判断是否为整数
-    function isInteger(obj) {
-        return !Math.floor(obj) === obj
-    }
-    if(typeof x != 'number' || typeof y != 'number' || x<=0 || y<=0 || isInteger(x) || isInteger(y)) return -1
-    // x+y+z=7
-    let basket = new Array(y).fill([])
-    return basket
+    if(!(/(^[1-9]\d*$)/.test(x))) return -1
 }
-console.log("分苹果可能性统计",f9(7,3));
+console.log("分苹果可能性统计",f9(3,2));
