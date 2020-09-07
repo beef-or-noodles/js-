@@ -14,16 +14,18 @@
     * keyword 需要高亮文字
     * */
     function hightKeyWord(text,keyword){
-        var txt = text
-        var keyword = keyword
-        let length = keyword.length
-        var find = txt.indexOf(keyword)
-        if(find==-1)return
-        let newTxt = `${txt.substr(0,find)}<span style="color:red;">${keyword}</span>${txt.substr(find+length,txt.length-(find+length))}`
-        return newTxt
+        var find = text.split(keyword)
+        let length = find.length
+        let str = ''
+        for(let i in find){
+            if(i<length-1){
+                str+=`${find[i]}<span style="color:red;">${keyword}</span>`
+            }
+        }
+        return str
     }
-    var text = 'VUE的基本原理实现Object.defineProperty()'
-    var keyword = 'Object'
+    var text = 'VUE的基本原理实现Object.defineProperty'
+    var keyword = 'ty'
     let dom = document.getElementById('txt')
     dom.innerHTML = hightKeyWord(text,keyword)
 
