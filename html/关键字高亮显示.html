@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>关键字高亮显示</title>
+</head>
+<body>
+    <div id="txt">
+
+    </div>
+<script>
+    /*
+    * text 原始字符串
+    * keyword 需要高亮文字
+    * */
+    function hightKeyWord(text,keyword){
+        var txt = text
+        var keyword = keyword
+        let length = keyword.length
+        var find = txt.indexOf(keyword)
+        if(find==-1)return
+        let newTxt = `${txt.substr(0,find)}<span style="color:red;">${keyword}</span>${txt.substr(find+length,txt.length-(find+length))}`
+        return newTxt
+    }
+    var text = 'VUE的基本原理实现Object.defineProperty()'
+    var keyword = 'Object'
+    let dom = document.getElementById('txt')
+    dom.innerHTML = hightKeyWord(text,keyword)
+
+</script>
+</body>
+</html>
