@@ -338,5 +338,9 @@ console.timeEnd();
 function f9(x,y){
     // 判断是否为整数
     if(!(/(^[1-9]\d*$)/.test(x))) return -1
+    let basket = new Array(y).fill(0)
+    function loop(){
+
+    }
 }
 console.log("分苹果可能性统计",f9(3,2));
