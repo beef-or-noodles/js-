@@ -305,3 +305,42 @@ function f7(str){
     return str_arr.join('')
 }
 console.log(f7('aadddccddc'),'统计规定字符串')
+
+/*
+* 实现 斐波那契数列
+* 0，1，1，2，3，5，8，13 ...  后一位数是前两位数相加
+* */
+// num 多少位数的数列
+console.time();
+function f8(num) {
+    let arr = [] // 数组答案
+    for (let i=0;i<num;i++){
+        if(i<2){
+            arr.push(i)
+        }else{
+            arr.push(arr[i-2] + arr[i-1])
+        }
+    }
+    return arr.join(',')
+}
+f8(10)
+// console.log("斐波那契数列",);
+console.timeEnd();
+
+/*
+* 分苹果 《递归、动态规划》
+* 输入 苹果 x 个 篮子 y 个 如果输入非法返回-1
+* 将苹果分放在篮子中允许存在空篮子
+* 求总共有多少种可能  不重复
+*
+* 第一个
+* */
+function f9(x,y){
+    // 判断是否为整数
+    if(!(/(^[1-9]\d*$)/.test(x))) return -1
+    let basket = new Array(y).fill(0)
+    function loop(){
+
+    }
+}
+console.log("分苹果可能性统计",f9(3,2));
