@@ -235,6 +235,27 @@
 
         console.log("js的原型和原型链----------------END------------");
 
+
+        console.log('new 关键字实现原理------------------------')
+    // new的实现
+    function NewFn(fn) {
+        // 判断是否有原型对象，并当作new的原型对象
+        let proto = Object(fn.prototype) === fn.prototype ? fn.prototype : Object.prototype;
+        // 利用原型创建new的对象
+        let obj = Object.create(proto);
+        // 把obj当作fn的this调用, 并解析去除fn在arguments里面的位置，剩余的传进去
+        let res = fn.apply(obj, Array.prototype.slice.call(arguments, 1));
+        // 判断返回的是否是对象
+        if (Object(res) === res) {
+            // 是对象则返回经过fn处理过的res
+            return res;
+        }
+        // 不是对象返回obj
+        return obj;
+    }
+        console.log("new 关键字实现原理-----------end-----------");
+
+
 </script>
 </body>
 
