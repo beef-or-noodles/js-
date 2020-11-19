@@ -1,0 +1,14 @@
+{
+  "name": "spider",
+  "version": "1.0.0",
+  "description": "node spider",
+  "main": "spider.js",
+  "scripts": {
+    "spider": "node spider.js"
+  },
+  "author": "wwq",
+  "license": "ISC",
+  "dependencies": {
+    "puppeteer": "^5.5.0"
+  }
+}
