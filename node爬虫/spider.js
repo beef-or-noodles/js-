@@ -33,7 +33,7 @@ var pagesize = 0
 function startGOGO() {
     // 查找列表url
     index+=1
-    let url = `http://www.tulishe.com/simo/scsy/page/${index}`
+    let url = `http://www.tulishe.com/simo/yaojing/page/${index}` //http://www.tulishe.com/simo/scsy/page/
     console.log(`开始抓取第${index}页-----------`);
     request(url, function (err, response, body) {
         console.log(url);
@@ -75,11 +75,12 @@ function startGOGO() {
                                     }
                                 })
                                 let jNun = j + ((index-1)*pagesize)
+                                console.log(j,index,pagesize,dataList.length);
                                 console.log(`访问第${jNun}条子元素抓取完毕`);
                                 dataList[jNun].childImgList = childUrl
                                 j += 1
                                 if (j < fistArr.length) {
-                                    contentLoop(fistArr[jNun+1])
+                                    contentLoop(fistArr[j])
                                 } else {
                                     startGOGO()
                                 }
@@ -109,7 +110,7 @@ function saveJson(jsonData) {
 // 格式化json
     let text = JSON.stringify(jsonData)
 // 指定要创建的目录和文件名称 __dirname为执行当前js文件的目录
-    let file = path.join('./', 'scsy.json');
+    let file = path.join('./', 'yaojing.json');
     //写入文件
     fs.writeFile(file, text, function (err) {
         if (err) {
@@ -120,7 +121,7 @@ function saveJson(jsonData) {
     });
 }
 try{
-    startGOGO()
+   // startGOGO()
 }catch (e) {
     saveJson(dataList)
     console.log(e);
@@ -129,7 +130,7 @@ try{
 
 http.createServer(function (req, res) {
     res.writeHead(200, {"Content-type": "text/html;charset=utf-8"});
-    request('http://www.tulishe.com/280721.html', function (err, response, body) {
+    request('http://www.tulishe.com/simo/yaojing/page/1', function (err, response, body) {
         /*
           response 响应信息的集合
         */
