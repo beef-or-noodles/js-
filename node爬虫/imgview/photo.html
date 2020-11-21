@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="referrer" content="no-referrer" />
+    <meta data-n-head="ssr" name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./viewer.css">
+    <script src="./viewer.js"></script>
+</head>
+<body>
+<style>
+
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    #jq22 {
+        margin: 0 auto;
+        font-size: 0;
+    }
+
+    #jq22 li {
+        display: inline-block;
+        width: 48%;
+        margin-left: 1%;
+        padding-top: 1%;
+    }
+
+    #jq22 li img {
+        width: 100%;
+    }
+    .top{
+        position: fixed;
+        top: 0;
+        left: 0;
+        box-sizing: border-box;
+        background: white;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        padding: 15px;
+    }
+</style>
+<div class="top">
+    <div>
+        <button onclick="upgroup()">上一套</button>
+        <button onclick="nextgroup()">下一套</button>
+    </div>
+   <div>
+       <button onclick="up()">上一个</button>
+       <button onclick="next()">下一个</button>
+   </div>
+</div>
+<h4 id="title"></h4>
+
+<ul id="jq22"></ul>
+
+<script>
+        var viewer
+        var imgdata = []
+        var index = 0
+        var group = 0
+        var json=['../dsmp.json','../mengsi.json',
+            '../mzsock.json','../scsy.json',
+            '../sihua.json','../simu.json',
+            '../sja佳爷.json','../ssa丝社.json',
+            '../wase.json',
+            '../yaojing.json',
+            '../yshx.json']
+        getJson()
+        function getJson(){
+            var XHR = new XMLHttpRequest();
+            //使用变量赋值new个XHR请求
+            XHR.open('get', json[group], true)
+            //open方法参数:请求方式|请求地址|是否异步(不写默认true)
+            XHR.responseType = 'json'
+            //返回类型:string|json|…
+            XHR.onreadystatechange = function (data) {
+                //准备状态改变触发
+                if (XHR.readyState == 4 && XHR.status == 200) {
+                    //判断是否请求成功
+                    imgdata = data.target.response
+                    htmlLoad(imgdata[index])
+                    viewer =  new Viewer(document.getElementById('jq22'));
+                    //打印成功后返回的数据
+                }
+            }
+            XHR.send()
+        }
+       function upgroup(){
+            if (group == 0) return
+           group--
+           getJson()
+        }
+        function nextgroup(){
+            if (group >= json.length-1) return
+            group++
+            getJson()
+        }
+        function up(){
+            if(index==0)return
+            index--
+            htmlLoad(imgdata[index])
+        }
+        function next(){
+            if(index>=imgdata.length-1)return
+            index++
+            htmlLoad(imgdata[index])
+        }
+        function htmlLoad(list={}){
+            var dom = document.getElementById('jq22')
+            var title= document.getElementById('title')
+            title.innerText = list.title
+            let txt = ''
+            list.childImgList.forEach(item=>{
+                txt+=`<li><img src="${item}"></li>`
+            })
+            dom.innerHTML = txt
+        }
+
+</script>
+</body>
+</html>

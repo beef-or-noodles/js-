@@ -30,10 +30,12 @@ let path = require('path');
 var index = 0 //分页
 var dataList = [] // 存放数据
 var pagesize = 0
+
+var fileName = 'simu'
 function startGOGO() {
     // 查找列表url
     index+=1
-    let url = `http://www.tulishe.com/simo/yaojing/page/${index}` //http://www.tulishe.com/simo/scsy/page/
+    let url = `http://www.tulishe.com/simo/simu/page/${index}`
     console.log(`开始抓取第${index}页-----------`);
     request(url, function (err, response, body) {
         console.log(url);
@@ -110,7 +112,7 @@ function saveJson(jsonData) {
 // 格式化json
     let text = JSON.stringify(jsonData)
 // 指定要创建的目录和文件名称 __dirname为执行当前js文件的目录
-    let file = path.join('./', 'yaojing.json');
+    let file = path.join('./', fileName+'.json');
     //写入文件
     fs.writeFile(file, text, function (err) {
         if (err) {
@@ -121,7 +123,7 @@ function saveJson(jsonData) {
     });
 }
 try{
-   // startGOGO()
+    startGOGO()
 }catch (e) {
     saveJson(dataList)
     console.log(e);
@@ -130,7 +132,7 @@ try{
 
 http.createServer(function (req, res) {
     res.writeHead(200, {"Content-type": "text/html;charset=utf-8"});
-    request('http://www.tulishe.com/simo/yaojing/page/1', function (err, response, body) {
+    request('http://www.tulishe.com/simo/sihua', function (err, response, body) {
         /*
           response 响应信息的集合
         */
