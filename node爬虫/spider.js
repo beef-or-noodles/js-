@@ -35,7 +35,7 @@ var fileName = 'simu'
 function startGOGO() {
     // 查找列表url
     index+=1
-    let url = `http://www.tulishe.com/simo/simu/page/${index}`
+    let url = ``
     console.log(`开始抓取第${index}页-----------`);
     request(url, function (err, response, body) {
         console.log(url);
@@ -123,7 +123,7 @@ function saveJson(jsonData) {
     });
 }
 try{
-    startGOGO()
+    //startGOGO()
 }catch (e) {
     saveJson(dataList)
     console.log(e);
@@ -132,7 +132,7 @@ try{
 
 http.createServer(function (req, res) {
     res.writeHead(200, {"Content-type": "text/html;charset=utf-8"});
-    request('http://www.tulishe.com/simo/sihua', function (err, response, body) {
+    request('http://react.ailion.cn', function (err, response, body) {
         /*
           response 响应信息的集合
         */
