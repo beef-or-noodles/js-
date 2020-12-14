@@ -18,97 +18,44 @@
 // cosnt fs = require('fs')
 // request('imgUrl').pipe(fs.createWriteStream('./flower.png')) // 下载文件到本地
 
-let cheerio = require('cheerio');
+let cheerio = require('cheerio'); //let $ = cheerio.load(body, {ignoreWhitespace: true}) 转换dome
 const request = require('request')
 var http = require('http');
+let util = require('util');
 
 //文件模块
 let fs = require('fs');
 //系统路径模块
 let path = require('path');
 
-var index = 0 //分页
-var dataList = [] // 存放数据
-var pagesize = 0
-
-var fileName = 'simu'
-function startGOGO() {
-    // 查找列表url
-    index+=1
-    let url = ``
-    console.log(`开始抓取第${index}页-----------`);
-    request(url, function (err, response, body) {
-        console.log(url);
-        if (!err && response.statusCode == 200) {
-            let $ = cheerio.load(body, {ignoreWhitespace: true})
-            let children = $('#posts').children('.post')
-            let fistArr = [] // 列表链接
-            if (children.length) {
-                if(index == 1){
-                    pagesize = children.length  // 记录下第一页的条数
-                }
-                children.each(function (i, item) {
-                    let a = children.eq(i).find('h3').eq(0).find('a').attr("href")
-                    let title = children.eq(i).find('h3').eq(0).find('a').attr("title")
-                    if (a) {
-                        fistArr.push(a)
-                        dataList.push({
-                            title: title,
-                            href: a,
-                            childImgList: []
-                        })
-                    }
-                })
-                console.log(`第${index}页加载完毕++++++++++++`);
-                if (fistArr.length) {
-                    var j = 0
-                    function contentLoop(url) {
-                        console.log(`正在抓取第${index}页第${j}条-----------${url}`);
-                        request(url, function (err, response, body) {
-                            if (!err && response.statusCode == 200) {
-                                let $c = cheerio.load(body, {ignoreWhitespace: true})
-                                let chid = $c('#gallery-1').children('.gallery-item')
-                                let childUrl = []
-                                chid.each(function (i, item) {
-                                    let src = chid.eq(i).find('img').eq(0).attr("src")
-                                    if (src) {
-                                        let href = src.split('src=')[1].split('&')[0]
-                                        childUrl.push(href)
-                                    }
-                                })
-                                let jNun = j + ((index-1)*pagesize)
-                                console.log(j,index,pagesize,dataList.length);
-                                console.log(`访问第${jNun}条子元素抓取完毕`);
-                                dataList[jNun].childImgList = childUrl
-                                j += 1
-                                if (j < fistArr.length) {
-                                    contentLoop(fistArr[j])
-                                } else {
-                                    startGOGO()
-                                }
-                            } else {
-                                console.error(`第${index}页第${j}条出错`);
-                                // 出错后继续爬取下一页
-                                startGOGO()
-                            }
-                        })
-                    }
-                    contentLoop(fistArr[j])
-                }
+// 请求封装
+function GET(url){
+    return new Promise((resolve, reject) => {
+        let proxy_ip = '60.208.44.228';
+        let proxy_port = 80;
+        let proxy = util.format('http://%s:%d', proxy_ip, proxy_port);
+        request(url, function (err, response, body) {
+            if(err){
+                reject(err)
             }else{
-
+                resolve(body)
             }
-        } else {
-            console.error(`第${index}页出错 可能是最后一页`);
-            console.log("----------------------抓取数据-------------------------");
-            // 保存json文件
-            saveJson(dataList)
-        }
+        })
     })
 }
 
+/*文件下载*/
+/*
+* url 网络文件地址
+* filename 文件名
+* callback 回调函数
+*/
+function downloadFile(uri,filename,callback){
+    var stream = fs.createWriteStream(filename);
+    request(uri).pipe(stream).on('close', callback);
+}
 
-function saveJson(jsonData) {
+function saveJson(jsonData,fileName) {
 // 格式化json
     let text = JSON.stringify(jsonData)
 // 指定要创建的目录和文件名称 __dirname为执行当前js文件的目录
@@ -122,29 +69,81 @@ function saveJson(jsonData) {
         }
     });
 }
-try{
-    //startGOGO()
-}catch (e) {
-    saveJson(dataList)
-    console.log(e);
-}
 
 
-http.createServer(function (req, res) {
-    res.writeHead(200, {"Content-type": "text/html;charset=utf-8"});
-    request('http://react.ailion.cn', function (err, response, body) {
-        /*
-          response 响应信息的集合
-        */
-        if (!err && response.statusCode == 200) {
 
-            // let $ = cheerio.load(body, {ignoreWhitespace: true})
-            // console.log($('#posts').length);
-            res.write(body);
-        } else {
-            console.log(err);
+function startGOGO() {
+    let videoJson = []
+    GET('http://www.51shiping.com/3g/list.asp?id=711').then(body=>{
+
+        /*抓取列表数据*/
+        let $ = cheerio.load(body, {ignoreWhitespace: true})
+        let domeList = $('.box02>a')
+        let urlList = []
+
+        domeList.each(function (i, item) {
+           let href = domeList.eq(i).attr('href')
+            urlList.push(href)
+        })
+
+        /* 递归抓取内容数据 */
+        let index = 0
+        loop(urlList[index])
+        function loop(url){
+            GET(url).then(res=>{
+                let $chide = cheerio.load(res, {ignoreWhitespace: true})
+                let script = $chide('script')
+                let strArr = script.eq(script.length-1).html().split(';')
+                eval(strArr[0])
+                eval(strArr[1])
+                eval(strArr[2])
+                //var muu='ae2017';  var mp='.mp4';   var wenn='0-0';
+                let title = $chide('.content>h1').eq(0).text()
+                let src = `https://www8.51shiping.com:444/${muu}/mp9/${wenn}${mp}`
+                videoJson.push({
+                    title,
+                    src
+                })
+                index++
+                console.log(title,src);
+                if(index < urlList.length){
+                    console.log("--------执行文件下载");
+                    /*执行文件下载*/
+                    let fileName = title+'.mp4'
+                    downloadFile(src,fileName,function(){
+                        console.log(fileName+'-----下载完毕 -------继续执行抓取');
+                        loop(urlList[index])
+                    });
+                }else{
+                    saveJson(videoJson,'Premiere2017视频教程')
+                    console.log("++++++++抓取完成");
+                }
+
+            }).catch(err=>{
+                console.log(err);
+                saveJson(videoJson,'Premiere2017视频教程')
+            })
         }
     })
-}).listen(8888);
-// 终端打印如下信息
-console.log('Server running at http://127.0.0.1:8888/');
+}
+
+startGOGO()
+
+// http.createServer(function (req, res) {
+//     res.writeHead(200, {"Content-type": "text/html;charset=utf-8"});
+//     request('http://react.ailion.cn', function (err, response, body) {
+//         /*
+//           response 响应信息的集合
+//         */
+//         if (!err && response.statusCode == 200) {
+//
+//             // let $ = cheerio.load(body, {ignoreWhitespace: true})
+//             // console.log($('#posts').length);
+//             res.write(body);
+//         } else {
+//             console.log(err);
+//         }
+//     })
+// }).listen(8888);
+// // 终端打印如下信息
+// console.log('Server running at http://127.0.0.1:8888/');
