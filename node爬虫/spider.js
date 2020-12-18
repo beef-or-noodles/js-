@@ -29,15 +29,23 @@ let fs = require('fs');
 let path = require('path');
 
 // 请求封装
-function GET(url){
+function GET(url) {
     return new Promise((resolve, reject) => {
-        let proxy_ip = '60.208.44.228';
+        let proxy_ip = '218.89.76.103';
         let proxy_port = 80;
         let proxy = util.format('http://%s:%d', proxy_ip, proxy_port);
+
+        let option = {
+            url,
+            method: "GET",
+            headers: {
+                "Content-Type": 'application/json'
+            }
+        }
         request(url, function (err, response, body) {
-            if(err){
+            if (err) {
                 reject(err)
-            }else{
+            } else {
                 resolve(body)
             }
         })
@@ -45,21 +53,22 @@ function GET(url){
 }
 
 /*文件下载*/
+
 /*
 * url 网络文件地址
 * filename 文件名
 * callback 回调函数
 */
-function downloadFile(uri,filename,callback){
+function downloadFile(uri, filename, callback) {
     var stream = fs.createWriteStream(filename);
     request(uri).pipe(stream).on('close', callback);
 }
 
-function saveJson(jsonData,fileName) {
+function saveJson(jsonData, fileName) {
 // 格式化json
     let text = JSON.stringify(jsonData)
 // 指定要创建的目录和文件名称 __dirname为执行当前js文件的目录
-    let file = path.join('./', fileName+'.json');
+    let file = path.join('./', fileName + '.json');
     //写入文件
     fs.writeFile(file, text, function (err) {
         if (err) {
@@ -70,64 +79,61 @@ function saveJson(jsonData,fileName) {
     });
 }
 
-
-
-function startGOGO() {
-    let videoJson = []
-    GET('http://www.51shiping.com/3g/list.asp?id=711').then(body=>{
-
-        /*抓取列表数据*/
-        let $ = cheerio.load(body, {ignoreWhitespace: true})
-        let domeList = $('.box02>a')
-        let urlList = []
-
-        domeList.each(function (i, item) {
-           let href = domeList.eq(i).attr('href')
-            urlList.push(href)
-        })
-
-        /* 递归抓取内容数据 */
-        let index = 0
-        loop(urlList[index])
-        function loop(url){
-            GET(url).then(res=>{
-                let $chide = cheerio.load(res, {ignoreWhitespace: true})
-                let script = $chide('script')
-                let strArr = script.eq(script.length-1).html().split(';')
-                eval(strArr[0])
-                eval(strArr[1])
-                eval(strArr[2])
-                //var muu='ae2017';  var mp='.mp4';   var wenn='0-0';
-                let title = $chide('.content>h1').eq(0).text()
-                let src = `https://www8.51shiping.com:444/${muu}/mp9/${wenn}${mp}`
-                videoJson.push({
-                    title,
-                    src
-                })
-                index++
-                console.log(title,src);
-                if(index < urlList.length){
-                    console.log("--------执行文件下载");
-                    /*执行文件下载*/
-                    let fileName = title+'.mp4'
-                    downloadFile(src,fileName,function(){
-                        console.log(fileName+'-----下载完毕 -------继续执行抓取');
-                        loop(urlList[index])
-                    });
-                }else{
-                    saveJson(videoJson,'Premiere2017视频教程')
-                    console.log("++++++++抓取完成");
-                }
-
-            }).catch(err=>{
-                console.log(err);
-                saveJson(videoJson,'Premiere2017视频教程')
-            })
-        }
-    })
+/* 过滤特殊字符 */
+var stripscript = function (s) {
+    var pattern = new RegExp("[`~!@#$^&*()=|�{}':;'\\[\\].<>/?~！@#￥……&* （）——|{}【】‘；：”“'。，、？↵\r\n]");
+    var rs = "";
+    for (var i = 0; i < s.length; i++) {
+        rs = rs + s.substr(i, 1).replace(pattern, '');
+    }
+    return rs;
 }
 
-startGOGO()
+/* 两数之间的随机数 */
+function getRandomNumber(start, end) {
+    return Math.floor(Math.random() * (end - start) + start)
+}
+
+
+var index = 1
+let dataJson = []
+
+function startGOGO() {
+    GET(`https://www.16788.cn/ssq/lishi.asp?sort=%CB%AB%C9%AB%C7%F2&sortid=2&page=${index < 10 ? `0${index}` : index}`).then(body => {
+        /*抓取列表数据*/
+        let $ = cheerio.load(body, {ignoreWhitespace: true})
+        let domeList = $('.font-14 tr')
+        for (let i in domeList) {
+            let tdArr = domeList.eq(i).find('td[align=center]')
+            if (tdArr.length > 0) {
+                let time = stripscript(tdArr.eq(1).text())
+                let red = stripscript(tdArr.eq(2).find('b').eq(0).text())
+                let bule = stripscript(tdArr.eq(3).find('b').eq(0).text())
+                dataJson.push({
+                    time,
+                    red,
+                    bule
+                })
+            }
+        }
+        if (domeList.length >= 25) {
+            index += 1
+            let random = getRandomNumber(0, 4) * 1000
+            console.log(`第${index}"页；开始抓取间隔时间：${random / 1000}'秒'`);
+            setTimeout(() => {
+                startGOGO(index)
+            }, random)
+        } else {
+            console.log("抓取完成================");
+            saveJson(dataJson, '双色球历史开奖')
+        }
+    }).catch(err => {
+        // 抓取出错
+        console.log(`第${index}页，抓取出错×××××××××××××××××××××`);
+        saveJson(dataJson, 'data')
+    })
+}
+//startGOGO()
 
 // http.createServer(function (req, res) {
 //     res.writeHead(200, {"Content-type": "text/html;charset=utf-8"});
