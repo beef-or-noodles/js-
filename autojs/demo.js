@@ -19,4 +19,6 @@ setInterval(() => {
 * console.show() // 打开控制台
 * launchApp(name) // 打开App
 * swipe(x1, y1, x2, y2, time) // 滑动屏幕
+* click() // 点击事件
+* press(x, y, duration) // 长按事件
 * */
