@@ -14,3 +14,9 @@ setInterval(() => {
     swipe(500, y1, 400, y2, 6000)
     up = !up
 }, 6000);
+
+/*
+* console.show() // 打开控制台
+* launchApp(name) // 打开App
+* swipe(x1, y1, x2, y2, time) // 滑动屏幕
+* */
