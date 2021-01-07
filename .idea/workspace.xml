@@ -1,0 +1,563 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BookmarkManager">
+    <bookmark url="file://$PROJECT_DIR$/note/promise/promise使用.js" line="36" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="ebf94cc9-ad60-4b6c-8355-0d39a68512aa" name="Default Changelist" comment="爬虫jia显示页面">
+      <change beforePath="$PROJECT_DIR$/autojs/qq.js" beforeDir="false" afterPath="$PROJECT_DIR$/autojs/qq.js" afterDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/.tmp/" />
+    <ignored path="$PROJECT_DIR$/temp/" />
+    <ignored path="$PROJECT_DIR$/tmp/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="JavaScript File" />
+        <option value="CSS File" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>international-home</find>
+      <find>https://i0.hdslb.com/bfs/vc</find>
+      <find>rotate(0deg)</find>
+      <find>animated-banner</find>
+      <find>layer</find>
+      <find>tran</find>
+      <find>.animated-banner</find>
+      <find>report-wrap-module</find>
+      <find>international-header</find>
+      <find>transition</find>
+      <find>bili-banner</find>
+      <find>原理</find>
+      <find>reset</find>
+      <find>[LSS山茶摄影] NO.240 丝袜穿搭83</find>
+      <find>[LSS山茶摄影] NO.018 清纯的肉丝</find>
+      <find>gallery-1</find>
+      <find>console</find>
+      <find>viewHeight</find>
+      <find>素岚</find>
+      <find>simo</find>
+      <find>苏格兰</find>
+      <find>米朵</find>
+      <find>jq21</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>./image</replace>
+      <replace>startGOGO</replace>
+    </replaceStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/note/算法题.js" />
+        <option value="$PROJECT_DIR$/theme/css/theme.css" />
+        <option value="$PROJECT_DIR$/theme/index.html" />
+        <option value="$PROJECT_DIR$/哔哩哔哩头部动画/js/index.css" />
+        <option value="$PROJECT_DIR$/哔哩哔哩头部动画/js/sentry-5.7.1.min.js" />
+        <option value="$PROJECT_DIR$/哔哩哔哩头部动画/js/index.js" />
+        <option value="$PROJECT_DIR$/哔哩哔哩头部动画/index.html" />
+        <option value="$PROJECT_DIR$/哔哩哔哩头部动画/css/index.css" />
+        <option value="$PROJECT_DIR$/哔哩哔哩头部动画/js/script.js" />
+        <option value="$PROJECT_DIR$/note/String操作.js" />
+        <option value="$PROJECT_DIR$/note/generator.js" />
+        <option value="$PROJECT_DIR$/note/promise/promise使用.js" />
+        <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/note/promise/promise实现.js" />
+        <option value="$PROJECT_DIR$/node爬虫/package.json" />
+        <option value="$PROJECT_DIR$/node爬虫/test.json" />
+        <option value="$PROJECT_DIR$/node爬虫/test2.json" />
+        <option value="$PROJECT_DIR$/node爬虫/scsy.json" />
+        <option value="$PROJECT_DIR$/node爬虫/photo.html" />
+        <option value="$PROJECT_DIR$/node爬虫/imgview/viewer.js" />
+        <option value="$PROJECT_DIR$/node爬虫/imgview/viewer.css" />
+        <option value="$PROJECT_DIR$/node爬虫/mengsi.json" />
+        <option value="$PROJECT_DIR$/node爬虫/spider.js" />
+        <option value="$PROJECT_DIR$/node爬虫/yaojing.json" />
+        <option value="$PROJECT_DIR$/node爬虫/imgview/photo.html" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="227" />
+    <option name="y" value="11" />
+    <option name="width" value="2230" />
+    <option name="height" value="1380" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="js-" type="b2602c69:ProjectViewProjectNode" />
+              <item name="js-" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="js-" type="b2602c69:ProjectViewProjectNode" />
+              <item name="js-" type="462c0819:PsiDirectoryNode" />
+              <item name="autojs" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="restartRequiresConfirmation" value="false" />
+    <property name="settings.editor.selected.configurable" value="web.server" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\HTML\js-\node爬虫\imgview" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="npm.spider">
+    <configuration name="算法题.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="算法题.js" working-dir="$PROJECT_DIR$/note">
+      <method v="2" />
+    </configuration>
+    <configuration name="spider" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/node爬虫/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="spider" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="npm.spider" />
+        <item itemvalue="Node.js.算法题.js" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ebf94cc9-ad60-4b6c-8355-0d39a68512aa" name="Default Changelist" comment="" />
+      <created>1595510343429</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1595510343429</updated>
+      <workItem from="1595510346133" duration="4022000" />
+      <workItem from="1595515715953" duration="1083000" />
+      <workItem from="1595640596629" duration="2305000" />
+      <workItem from="1595893703909" duration="3035000" />
+      <workItem from="1596151945664" duration="363000" />
+      <workItem from="1596152331785" duration="2954000" />
+      <workItem from="1597153676385" duration="34000" />
+      <workItem from="1597318734206" duration="8444000" />
+      <workItem from="1597453642067" duration="608000" />
+      <workItem from="1602337256215" duration="3539000" />
+      <workItem from="1602382047726" duration="16019000" />
+      <workItem from="1602409281644" duration="1342000" />
+      <workItem from="1602475451127" duration="3617000" />
+      <workItem from="1602547091882" duration="1904000" />
+      <workItem from="1603155942992" duration="11605000" />
+      <workItem from="1603243485612" duration="849000" />
+      <workItem from="1603249449620" duration="599000" />
+      <workItem from="1603328486106" duration="9802000" />
+      <workItem from="1603506762937" duration="169000" />
+      <workItem from="1605884251383" duration="11981000" />
+      <workItem from="1605924150208" duration="15040000" />
+      <workItem from="1606010359359" duration="309000" />
+      <workItem from="1606397594356" duration="8711000" />
+      <workItem from="1606492104331" duration="3366000" />
+      <workItem from="1606533101675" duration="47000" />
+      <workItem from="1606616965641" duration="608000" />
+      <workItem from="1607087423065" duration="717000" />
+      <workItem from="1607692585135" duration="1943000" />
+      <workItem from="1607789535273" duration="2656000" />
+      <workItem from="1608816487536" duration="2712000" />
+      <workItem from="1608901327631" duration="1348000" />
+      <workItem from="1609600628065" duration="2130000" />
+      <workItem from="1610023330924" duration="1559000" />
+    </task>
+    <task id="LOCAL-00001" summary="123">
+      <created>1595514575060</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1595514575060</updated>
+    </task>
+    <task id="LOCAL-00002" summary="鸡兔同笼">
+      <created>1595517140326</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1595517140326</updated>
+    </task>
+    <task id="LOCAL-00003" summary="鸡兔同笼">
+      <created>1595896426944</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1595896426944</updated>
+    </task>
+    <task id="LOCAL-00004" summary="鸡兔同笼">
+      <created>1596155173731</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1596155173731</updated>
+    </task>
+    <task id="LOCAL-00005" summary="换肤功能">
+      <created>1597330757810</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1597330757810</updated>
+    </task>
+    <task id="LOCAL-00006" summary="bilibili头部">
+      <created>1602340802200</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1602340802200</updated>
+    </task>
+    <task id="LOCAL-00007" summary="bilibili头部">
+      <created>1602382070881</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1602382070881</updated>
+    </task>
+    <task id="LOCAL-00008" summary="bilibili头部">
+      <created>1602405660705</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1602405660705</updated>
+    </task>
+    <task id="LOCAL-00009" summary="promise使用&#10;var p = new Promise((resolve,reject)=&gt;{})&#10; p.then(data=&gt;{}).catch(err=&gt;{})&#10; Promise.all &#10; Promise.race">
+      <created>1603195783392</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1603195783392</updated>
+    </task>
+    <task id="LOCAL-00010" summary="promise 初步实现原理">
+      <created>1603370419431</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1603370419431</updated>
+    </task>
+    <task id="LOCAL-00011" summary="爬虫">
+      <created>1605927479295</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1605927479295</updated>
+    </task>
+    <task id="LOCAL-00012" summary="爬虫">
+      <created>1605928959894</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1605928959894</updated>
+    </task>
+    <task id="LOCAL-00013" summary="爬虫jia显示页面">
+      <created>1605975104410</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1605975104410</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="125420000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="182" y="9" width="1784" height="1104" extended-state="0" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15603249" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="1" />
+      <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="3" />
+      <window_info anchor="bottom" id="Find" order="4" />
+      <window_info anchor="bottom" id="Debug" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="6" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="7" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="8" />
+      <window_info anchor="bottom" id="Messages" order="9" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Terminal" order="3" side_tool="true" weight="0.15487239" />
+      <window_info anchor="right" id="Run" order="4" side_tool="true" weight="0.30207852" />
+    </layout>
+    <layout-to-restore>
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14595842" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="1" />
+      <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="3" />
+      <window_info anchor="bottom" id="Find" order="4" />
+      <window_info anchor="bottom" id="Debug" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="6" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="7" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="8" />
+      <window_info anchor="bottom" id="Messages" order="9" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info active="true" anchor="right" id="Terminal" order="3" side_tool="true" visible="true" weight="0.23602772" />
+      <window_info anchor="right" id="Run" order="4" side_tool="true" weight="0.30214968" />
+    </layout-to-restore>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+    <option name="exactExcludedFiles">
+      <list>
+        <option value="$PROJECT_DIR$/ts/index.js" />
+      </list>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="123" />
+    <MESSAGE value="鸡兔同笼" />
+    <MESSAGE value="换肤功能" />
+    <MESSAGE value="bilibili头部" />
+    <MESSAGE value="promise使用&#10;var p = new Promise((resolve,reject)=&gt;{})&#10; p.then(data=&gt;{}).catch(err=&gt;{})&#10; Promise.all &#10; Promise.race" />
+    <MESSAGE value="promise 初步实现原理" />
+    <MESSAGE value="爬虫" />
+    <MESSAGE value="爬虫jia显示页面" />
+    <option name="LAST_COMMIT_MESSAGE" value="爬虫jia显示页面" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/哔哩哔哩头部动画/js/index.js" />
+    <entry file="file://$PROJECT_DIR$/哔哩哔哩头部动画/image/2-4.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/theme/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3250">
+          <caret line="130" column="50" selection-start-line="130" selection-start-column="50" selection-end-line="130" selection-end-column="50" />
+          <folding>
+            <element signature="n#style#0;n#input#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/哔哩哔哩头部动画/image/2-1.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/哔哩哔哩头部动画/image/2-2.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/theme/css/theme.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="7" column="19" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/哔哩哔哩头部动画/image/2-3.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/6.png" />
+    <entry file="file://$PROJECT_DIR$/哔哩哔哩头部动画/image/1.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/哔哩哔哩头部动画/image/6.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/哔哩哔哩头部动画/image/5.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/哔哩哔哩头部动画/image/4.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/哔哩哔哩头部动画/image/3.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/哔哩哔哩头部动画/css/index.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="750">
+          <caret line="30" column="22" selection-start-line="30" selection-start-column="22" selection-end-line="30" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/哔哩哔哩头部动画/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="21" column="65" selection-start-line="21" selection-start-column="16" selection-end-line="21" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/note/js面向对象编程/构造函数的七种继承方式.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1675">
+          <caret line="67" column="1" lean-forward="true" selection-start-line="67" selection-start-column="1" selection-end-line="67" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vue_principle.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="11" column="6" lean-forward="true" selection-start-line="11" selection-start-column="6" selection-end-line="11" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/note/String操作.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="400">
+          <caret line="16" column="37" selection-start-line="16" selection-start-column="37" selection-end-line="16" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/哔哩哔哩头部动画/js/script.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="825">
+          <caret line="33" column="15" selection-start-line="33" selection-start-column="8" selection-end-line="33" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/目录/book.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/note/promise/promise使用.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="10" column="4" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/note/js面向对象编程/extends.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/note/算法题.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6432">
+          <caret line="268" column="16" selection-start-line="268" selection-start-column="16" selection-end-line="268" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/file.js" />
+    <entry file="file://$PROJECT_DIR$/note/generator.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="14" column="27" selection-start-line="14" selection-start-column="27" selection-end-line="14" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/note/promise/promise实现.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="633">
+          <caret line="46" column="68" selection-start-line="46" selection-start-column="68" selection-end-line="46" selection-end-column="68" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1161">
+          <caret line="256" selection-start-line="256" selection-end-line="256" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/widget/widget.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="15" selection-start-line="15" selection-end-line="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="384">
+          <caret line="16" column="14" selection-start-line="16" selection-start-column="14" selection-end-line="16" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node爬虫/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="12" column="3" lean-forward="true" selection-start-line="12" selection-start-column="3" selection-end-line="12" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node爬虫/test.json" />
+    <entry file="file://$PROJECT_DIR$/node爬虫/test2.json" />
+    <entry file="file://$PROJECT_DIR$/node爬虫/wase.json" />
+    <entry file="file://$PROJECT_DIR$/node爬虫/sja佳爷.json" />
+    <entry file="file://$PROJECT_DIR$/node爬虫/sihua.json" />
+    <entry file="file://$PROJECT_DIR$/node爬虫/imgview/viewer.js" />
+    <entry file="file://$PROJECT_DIR$/node爬虫/imgview/viewer.css" />
+    <entry file="file://$PROJECT_DIR$/node爬虫/scsy.json" />
+    <entry file="file://$PROJECT_DIR$/node爬虫/dsmp.json" />
+    <entry file="file://$PROJECT_DIR$/node爬虫/mengsi.json" />
+    <entry file="file://$PROJECT_DIR$/node爬虫/simu.json" />
+    <entry file="file://$PROJECT_DIR$/node爬虫/yshx.json" />
+    <entry file="file://$PROJECT_DIR$/node爬虫/斯文传媒.json" />
+    <entry file="file://$PROJECT_DIR$/node爬虫/0du.json" />
+    <entry file="file://$PROJECT_DIR$/node爬虫/yaojing.json" />
+    <entry file="file://$PROJECT_DIR$/node爬虫/spider.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="846">
+          <caret line="121" column="9" selection-start-line="121" selection-start-column="9" selection-end-line="121" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node爬虫/imgview/photo.html" />
+  </component>
+</project>

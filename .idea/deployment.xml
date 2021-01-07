@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PublishConfigData">
+    <serverData>
+      <paths name="photo">
+        <serverdata>
+          <mappings>
+            <mapping deploy="\" local="$PROJECT_DIR$/node爬虫" web="/imgview" />
+          </mappings>
+        </serverdata>
+      </paths>
+    </serverData>
+  </component>
+</project>
