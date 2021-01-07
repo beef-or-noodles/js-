@@ -1,6 +1,6 @@
 
 //requestScreenCapture();
-console.show()
+// console.show()
 // 开启自动抢红包操作
 function start(){
        while(true){
@@ -38,12 +38,16 @@ rob()
 // 抢红包操作
 function rob(){
          var package = id('al7').find()
-         package.forEach(element => {
-            element.click()
-            var open = desc('开').findOne()
-            open.click()
-            var back = id('dn').findOne()
-            back.click()
+         package.forEach((element,index) => {
+            package[index].click()
+            var open = desc('开').find()
+            if(open.length>0){
+               open[0].click()
+            }else{
+              var back = desc('返回').findOne()
+              click(back.bounds().centerX(), back.bounds().centerY())  
+            }
+            sleep(500)
          });
 
          console.log(package.length,'红包个数');      
