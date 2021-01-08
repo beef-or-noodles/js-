@@ -26,18 +26,21 @@ if (!requestScreenCapture(false)) {
             }
         
         }
-        
         // 开红包
         function rob() {
-            sleep(200)
-            var open = desc('开').find()
-            console.log(open.length, '点击开启')
-            if (open.length > 0) {
-                open[0].click()
-                sleep(1000)
-                back()
+            let xt = true
+            while(xt){
+                var open = desc('开').find()
+                console.log(open.length, '点击开启')
+                if (open.length > 0) {
+                    open[0].click()
+                    xt = false
+                    sleep(1000)
+                    back()
+                }
             }
-        }
+            
+        }    
         
         // 返回
         function back() {
