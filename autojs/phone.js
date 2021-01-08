@@ -3,7 +3,6 @@ if (!requestScreenCapture(false)) {
             exit();
         }
         start()
-        
         function start() {
             // 红包未开颜色
             var color = '#fffa9d3b'
@@ -19,8 +18,6 @@ if (!requestScreenCapture(false)) {
                 if (point) {
                     var x = point.x
                     var y = point.y
-                    click(x, y)
-                    sleep(100)
                     click(x, y)
                     rob()
                 } else {
