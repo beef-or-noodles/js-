@@ -6,7 +6,7 @@
 // 开启自动抢红包操作
 launchApp("微信")
 sleep(500)
-start()
+//start()
 
 function start(){
        while(true){
