@@ -138,9 +138,16 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
+<<<<<<< HEAD
     <option name="x" value="-10" />
     <option name="width" value="2408" />
     <option name="height" value="1244" />
+=======
+    <option name="x" value="-387" />
+    <option name="y" value="-1440" />
+    <option name="width" value="2143" />
+    <option name="height" value="1421" />
+>>>>>>> 0f8f79d04188361082963b5fe269b2d7e02545c5
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -169,7 +176,7 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/哔哩哔哩头部动画" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />

@@ -1,0 +1,39 @@
+body{
+    padding: 0;
+    margin: 0;
+}
+.animated-banner img,.animated-banner video{
+    display: block;
+    width: 100%;
+}
+
+/* 重合树 */
+.bili-banner{
+    position: relative;
+    min-width: 999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+.animated-banner{
+    position: absolute;
+    width: 130%;
+    height: 100%;
+}
+.bili-banner.moueout .layer{
+    transition: all .3s linear;
+}
+.layer{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+#snowCanvas{
+    position: absolute;
+    z-index: 999;
+    width: 100%;
+    height: 100%;
+}

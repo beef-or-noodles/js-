@@ -1,0 +1,6 @@
+node_modules
+/dist
+/src/views/_demo
+*.zip
+/.vscode
+/.idea
