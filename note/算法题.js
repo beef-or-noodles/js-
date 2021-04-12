@@ -328,19 +328,25 @@ f8(10)
 console.timeEnd();
 
 /*
-* 分苹果 《递归、动态规划》
-* 输入 苹果 x 个 篮子 y 个 如果输入非法返回-1
-* 将苹果分放在篮子中允许存在空篮子
-* 求总共有多少种可能  不重复
+* 给你一个数组 nums 。数组「动态和」的计算公式为：runningSum[i] = sum(nums[0]…nums[i]) 。
+* 请返回 nums 的动态和。
+* 示例：
+* 输入：nums = [1,1,1,1,1]
+* 输出：[1,2,3,4,5]
+* 解释：动态和计算过程为 [1, 1+1, 1+1+1, 1+1+1+1, 1+1+1+1+1] 。
 *
-* 第一个
-* */
-function f9(x,y){
-    // 判断是否为整数
-    if(!(/(^[1-9]\d*$)/.test(x))) return -1
-    let basket = new Array(y).fill(0)
-    function loop(){
-
+*/
+function f9(nums) {
+    if(!Array.isArray(nums)) return
+    let length = nums.length
+    let arr = []
+    for(let i= 0;i<length;i++){
+        let num = 0
+        for(let j=0;j<=i;j++ ){
+            num += nums[j]
+        }
+        arr.push(num)
     }
-}
-console.log("分苹果可能性统计",f9(3,2));
+    return arr
+};
+console.log("一维数组动态和",f9([1,2,3,4]))
